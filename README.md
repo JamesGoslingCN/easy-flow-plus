@@ -22,7 +22,7 @@
 
 
 ## 项目介绍
-`easy-flow` 基于VUE+ElementUI+JsPlumb的流程设计器，通过 vuedraggable 插件来实现节点拖拽。
+`easy-flow-plus` 基于VUE+ElementUI+JsPlumb的流程设计器，扩展了easy-flow的功能，通过 vuedraggable 插件来实现节点拖拽。
 
 
 ## 功能介绍
