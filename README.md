@@ -225,7 +225,7 @@
 
 ``` bash
 # 下载工程
-git clone  https://github.com/BiaoChengLiu/easy-flow.git
+git clone  https://github.com/JamesGoslingCN/easy-flow-plus.git
 
 # 安装依赖包
 npm install
@@ -237,17 +237,7 @@ npm run dev
  http://localhost:8080
 ```
 
-## github
-https://github.com/BiaoChengLiu/easy-flow
-
-## 码云
-https://gitee.com/xiaoka2017/easy-flow
-
 ## 交流群
-
-QQ群：534446043
-
-![avatar](https://gitee.com/xiaoka2017/resource/raw/master/easy-flow/qrcode_1575887795029.jpg)
 
 ## 协议
 符合项目package.json中使用的插件中规定的协议即可
