@@ -13,6 +13,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+    - name: deploy-develop
       run: |
         curl -X POST --data "environment=$TEST_ENVIRONMENT_UUID" --header "Authorization: Token $API_TOKEN" https://api.divio.com/apps/v3/deployments/
     # 安装依赖
