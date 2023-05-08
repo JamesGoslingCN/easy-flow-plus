@@ -27,8 +27,8 @@ jobs:
       run: |
         docker login --username=${{ secrets.TENCENT_DOCKER_USERNAME }} ccr.ccs.tencentyun.com --password=${{ secrets.TENCENT_DOCKER_PASSWORD }}
         docker build -t james-gosling-cn/easy-flow-plus:latest .
-        docker tag james-gosling-cn ccr.ccs.tencentyun.com/james-gosling-cn/easy-flow-plus:latest
-        docker push ccr.ccs.tencentyun.com/james-gosling-cn/easy-flow-plus:latest
+        docker tag james-gosling-cn/easy-flow-plus:latest ccr.ccs.tencentyun.com/james-gosling-cn/efp:latest
+        docker push efp:latest
     # 使用appleboy/ssh-action@master登录服务器执行拉取镜像脚本，服务器ip、用户名、密码配置方式同容器镜像服务配置方式一样
     # - name: ssh docker login
     #   uses: appleboy/ssh-action@master
