@@ -7216,9 +7216,9 @@
         this._jsPlumb.overlays = {};
         this._jsPlumb.overlayPositions = {};
 
-        if (params.label) {
+        if (params.condition) {
             this.getDefaultType().overlays[_internalLabelOverlayId] = ["Label", {
-                label: params.label,
+                label: params.condition,
                 location: params.labelLocation || this.defaultLabelLocation || 0.5,
                 labelStyle: params.labelStyle || this._jsPlumb.instance.Defaults.LabelStyle,
                 id:_internalLabelOverlayId
@@ -7226,7 +7226,7 @@
         }else if(params.id){
             // 新增 label 为空时设置的cssClass无效问题，可以使用  emptyLabelStyle: {cssClass: 'emptyFlowLabel'} 进行设置 by_ 萌级小菜鸟
             this.getDefaultType().overlays[_internalLabelOverlayId] = ["Label", {
-                label: params.label,
+                label: params.condition,
                 location: params.labelLocation || this.defaultLabelLocation || 0.5,
                 labelStyle: params.emptyLabelStyle || this._jsPlumb.instance.Defaults.emptyLabelStyle,
                 id:_internalLabelOverlayId

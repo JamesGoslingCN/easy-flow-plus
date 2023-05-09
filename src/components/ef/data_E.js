@@ -35,7 +35,7 @@ var dataE = {
     }, {
         source: 'nodeA',
         target: 'nodeC',
-        label: 'hello'
+        condition: 'hello'
     }, {
         source: 'nodeB',
         target: 'nodeD'

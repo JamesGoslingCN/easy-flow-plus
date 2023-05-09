@@ -75,7 +75,19 @@
     import { getDataD } from './data_D'
     import { getDataE } from './data_E'
     import { ForceDirected } from './force-directed'
-
+    const handleDeleteKeyDownEvent = function (e) {
+        console.log('key down event: ', e)
+        if (e.keyCode == 8) {
+            // 删除节点
+            if (this.activeElement.type == 'node') {
+                this.deleteNode(this.activeElement.nodeId)
+            }
+            // 删除连线
+            if (this.activeElement.type == 'line') {
+                this.deleteLine(this.activeElement.sourceId, this.activeElement.targetId)
+            }
+        }
+    }
     export default {
         data() {
             return {
@@ -151,6 +163,12 @@
                 // 默认加载流程A的数据、在这里可以根据具体的业务返回符合流程数据格式的数据即可
                 this.dataReload(getDataB())
             })
+            // 监听键盘删除事件
+            window.addEventListener('keydown', handleDeleteKeyDownEvent.bind(this))
+        },
+        beforeDestroy(){
+            // 撤销监听键盘删除事件
+            window.removeEventListener('keydown', handleDeleteKeyDownEvent.bind(this))
         },
         methods: {
             // 返回唯一标识
@@ -173,7 +191,7 @@
                         this.$refs.nodeForm.lineInit({
                             source: conn.sourceId,
                             target: conn.targetId,
-                            label: conn.getLabel()
+                            condition: conn.getLabel()
                         })
                     })
                     // 连线
@@ -252,7 +270,7 @@
                     var connParam = {
                         source: line.source,
                         target: line.target,
-                        label: line.label ? line.label : '',
+                        condition: line.condition ? line.condition : '',
                         connector: line.connector ? line.connector : '',
                         anchors: line.anchors ? line.anchors : undefined,
                         paintStyle: line.paintStyle ? line.paintStyle : undefined,
@@ -264,7 +282,7 @@
                 })
             },
             // 设置连线条件
-            setLineLabel(source, target, label) {
+            setLineLabel(source, target, condition) {
                 var conn = this.jsPlumb.getConnections({
                     source: source,
                     target: target
@@ -276,11 +294,11 @@
                     conn.addClass('flowLabel')
                 }
                 conn.setLabel({
-                    label: label,
+                    condition: condition,
                 })
                 this.data.lineList.forEach(function (line) {
                     if (line.source == source && line.target == target) {
-                        line.label = label
+                        line.condition = condition
                     }
                 })
 

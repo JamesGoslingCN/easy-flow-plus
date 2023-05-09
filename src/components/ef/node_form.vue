@@ -26,7 +26,7 @@
                             <el-option
                                     v-for="item in stateList"
                                     :key="item.state"
-                                    :label="item.label"
+                                    :label="item.condition"
                                     :value="item.state">
                             </el-option>
                         </el-select>
@@ -42,7 +42,7 @@
 
                 <el-form :model="line" ref="dataForm" label-width="80px" v-show="type === 'line'">
                     <el-form-item label="条件">
-                        <el-input v-model="line.label"></el-input>
+                        <el-input v-model="line.condition"></el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-button icon="el-icon-close">重置</el-button>
@@ -104,7 +104,7 @@
             },
             // 修改连线
             saveLine() {
-                this.$emit('setLineLabel', this.line.source, this.line.target, this.line.label)
+                this.$emit('setLineLabel', this.line.source, this.line.target, this.line.condition)
             },
             save() {
                 this.data.nodeList.filter((node) => {

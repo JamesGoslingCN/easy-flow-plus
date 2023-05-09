@@ -40,28 +40,28 @@ var dataD = {
     lineList: [{
         source: 'nodeA',
         target: 'nodeB',
-        label: '直线,自定义线样式,固定锚点',
+        condition: '直线,自定义线样式,固定锚点',
         connector: 'Straight',
         anchors: ['Top', 'Bottom'],
         paintStyle: {strokeWidth: 2, stroke: '#1879FF'}
     }, {
         source: 'nodeA',
         target: 'nodeC',
-        label: '贝塞尔曲线,固定锚点',
+        condition: '贝塞尔曲线,固定锚点',
         connector: 'Bezier',
         anchors: ['Bottom', 'Left']
     }, {
         source: 'nodeB',
         target: 'nodeD',
-        label: '默认连线样式,动态锚点'
+        condition: '默认连线样式,动态锚点'
     }, {
         source: 'nodeC',
         target: 'nodeD',
-        label: '默认连线样式,动态锚点'
+        condition: '默认连线样式,动态锚点'
     }, {
         source: 'nodeC',
         target: 'nodeC',
-        label: '自连接'
+        condition: '自连接'
     }
     ]
 }

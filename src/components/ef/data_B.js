@@ -41,11 +41,11 @@ let dataB = {
     lineList: [{
         source: 'nodeA',
         target: 'nodeB',
-        label: '条件A'
+        condition: '条件A'
     }, {
         source: 'nodeA',
         target: 'nodeC',
-        label: '条件B'
+        condition: '条件B'
     }, {
         source: 'nodeB',
         target: 'nodeD'

@@ -86,26 +86,26 @@
         }
     ],
     lineList: [{
-        from: 'nodeA',
-        to: 'nodeB',
-        label: '直线,自定义线样式,固定锚点',
+        source: 'nodeA',
+        target: 'nodeB',
+        condition: '直线,自定义线样式,固定锚点',
         connector: 'Straight',
         anchors: ['Top', 'Bottom'],
         paintStyle: {strokeWidth: 2, stroke: '#1879FF'}
     }, {
-        from: 'nodeA',
-        to: 'nodeC',
-        label: '贝塞尔曲线,固定锚点',
+        source: 'nodeA',
+        target: 'nodeC',
+        condition: '贝塞尔曲线,固定锚点',
         connector: 'Bezier',
         anchors: ['Bottom', 'Left']
     }, {
-        from: 'nodeB',
-        to: 'nodeD',
-        label: '默认连线样式,动态锚点'
+        source: 'nodeB',
+        target: 'nodeD',
+        condition: '默认连线样式,动态锚点'
     }, {
-        from: 'nodeC',
-        to: 'nodeD',
-        label: '默认连线样式,动态锚点'
+        source: 'nodeC',
+        target: 'nodeD',
+        condition: '默认连线样式,动态锚点'
     }
     ]
 }
