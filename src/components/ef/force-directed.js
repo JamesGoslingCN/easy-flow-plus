@@ -41,7 +41,7 @@ export function ForceDirected(data = {}) {
     let lineList = data.lineList
     for (let i = 0; i < lineList.length; i++) {
         let line = lineList[i]
-        let edge = new Edge(line.from, line.to)
+        let edge = new Edge(line.source, line.target)
         mEdgeList.push(edge)
     }
 

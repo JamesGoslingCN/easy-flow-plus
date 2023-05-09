@@ -171,8 +171,8 @@
                         this.activeElement.sourceId = conn.sourceId
                         this.activeElement.targetId = conn.targetId
                         this.$refs.nodeForm.lineInit({
-                            from: conn.sourceId,
-                            to: conn.targetId,
+                            source: conn.sourceId,
+                            target: conn.targetId,
                             label: conn.getLabel()
                         })
                     })
@@ -181,7 +181,7 @@
                         let from = evt.source.id
                         let to = evt.target.id
                         if (this.loadEasyFlowFinish) {
-                            this.data.lineList.push({from: from, to: to})
+                            this.data.lineList.push({source: from, target: to})
                         }
                     })
 
@@ -250,8 +250,8 @@
                 for (var i = 0; i < this.data.lineList.length; i++) {
                     let line = this.data.lineList[i]
                     var connParam = {
-                        source: line.from,
-                        target: line.to,
+                        source: line.source,
+                        target: line.target,
                         label: line.label ? line.label : '',
                         connector: line.connector ? line.connector : '',
                         anchors: line.anchors ? line.anchors : undefined,
@@ -264,10 +264,10 @@
                 })
             },
             // 设置连线条件
-            setLineLabel(from, to, label) {
+            setLineLabel(source, target, label) {
                 var conn = this.jsPlumb.getConnections({
-                    source: from,
-                    target: to
+                    source: source,
+                    target: target
                 })[0]
                 if (!label || label === '') {
                     conn.removeClass('flowLabel')
@@ -279,7 +279,7 @@
                     label: label,
                 })
                 this.data.lineList.forEach(function (line) {
-                    if (line.from == from && line.to == to) {
+                    if (line.source == source && line.target == target) {
                         line.label = label
                     }
                 })
@@ -305,9 +305,9 @@
                 }
             },
             // 删除线
-            deleteLine(from, to) {
+            deleteLine(source, target) {
                 this.data.lineList = this.data.lineList.filter(function (line) {
-                    if (line.from == from && line.to == to) {
+                    if (line.source == source && line.target == target) {
                         return false
                     }
                     return true
@@ -428,10 +428,10 @@
                 this.$refs.nodeForm.nodeInit(this.data, nodeId)
             },
             // 是否具有该线
-            hasLine(from, to) {
-                for (var i = 0; i < this.data.lineList.length; i++) {
-                    var line = this.data.lineList[i]
-                    if (line.from === from && line.to === to) {
+            hasLine(source, target) {
+                for (let i = 0; i < this.data.lineList.length; i++) {
+                    const line = this.data.lineList[i]
+                    if (line.source === source && line.target === target) {
                         return true
                     }
                 }

@@ -39,19 +39,19 @@ let dataB = {
         }
     ],
     lineList: [{
-        from: 'nodeA',
-        to: 'nodeB',
+        source: 'nodeA',
+        target: 'nodeB',
         label: '条件A'
     }, {
-        from: 'nodeA',
-        to: 'nodeC',
+        source: 'nodeA',
+        target: 'nodeC',
         label: '条件B'
     }, {
-        from: 'nodeB',
-        to: 'nodeD'
+        source: 'nodeB',
+        target: 'nodeD'
     }, {
-        from: 'nodeC',
-        to: 'nodeD'
+        source: 'nodeC',
+        target: 'nodeD'
     }
     ]
 }

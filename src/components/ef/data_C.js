@@ -28,11 +28,11 @@ let dataC = {
     ],
     lineList: [
         {
-            from: 'nodeA',
-            to: 'nodeB'
+            source: 'nodeA',
+            target: 'nodeB'
         }, {
-            from: 'nodeB',
-            to: 'nodeC'
+            source: 'nodeB',
+            target: 'nodeC'
         }
     ]
 }

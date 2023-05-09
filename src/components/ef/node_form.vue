@@ -31,6 +31,9 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
+                    <el-form-item label="Code">
+                        <el-input v-model="node.code"></el-input>
+                    </el-form-item>
                     <el-form-item>
                         <el-button icon="el-icon-close">重置</el-button>
                         <el-button type="primary" icon="el-icon-check" @click="save">保存</el-button>
@@ -101,7 +104,7 @@
             },
             // 修改连线
             saveLine() {
-                this.$emit('setLineLabel', this.line.from, this.line.to, this.line.label)
+                this.$emit('setLineLabel', this.line.source, this.line.target, this.line.label)
             },
             save() {
                 this.data.nodeList.filter((node) => {
@@ -111,6 +114,7 @@
                         node.top = this.node.top
                         node.ico = this.node.ico
                         node.state = this.node.state
+                        node.code = this.node.code
                         this.$emit('repaintEverything')
                     }
                 })

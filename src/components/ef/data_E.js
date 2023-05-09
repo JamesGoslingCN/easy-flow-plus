@@ -30,21 +30,21 @@ var dataE = {
         }
     ],
     lineList: [{
-        from: 'nodeA',
-        to: 'nodeB'
+        source: 'nodeA',
+        target: 'nodeB'
     }, {
-        from: 'nodeA',
-        to: 'nodeC',
+        source: 'nodeA',
+        target: 'nodeC',
         label: 'hello'
     }, {
-        from: 'nodeB',
-        to: 'nodeD'
+        source: 'nodeB',
+        target: 'nodeD'
     }, {
-        from: 'nodeC',
-        to: 'nodeD'
+        source: 'nodeC',
+        target: 'nodeD'
     }, {
-        from: 'nodeC',
-        to: 'nodeC'
+        source: 'nodeC',
+        target: 'nodeC'
     }
     ]
 }
