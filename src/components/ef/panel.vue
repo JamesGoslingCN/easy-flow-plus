@@ -301,7 +301,6 @@
                         line.condition = condition
                     }
                 })
-
             },
             // 删除激活的元素
             deleteElement() {
