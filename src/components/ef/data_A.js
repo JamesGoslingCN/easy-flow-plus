@@ -3,11 +3,11 @@ let dataA = {
     nodeList: [
         {
             id: 'nodeA',
-            name: '流程A-节点A',
-            type: 'task',
+            name: '开始',
+            type: 'start',
             left: '26px',
             top: '161px',
-            ico: 'el-icon-user-solid'
+            ico: 'el-icon-caret-right'
         },
         {
             id: 'nodeB',
@@ -19,11 +19,11 @@ let dataA = {
         },
         {
             id: 'nodeC',
-            name: '流程A-节点C',
-            type: 'task',
+            name: '结束',
+            type: 'end',
             left: '739px',
             top: '161px',
-            ico: 'el-icon-present'
+            ico: 'el-icon-finished'
         }
     ],
     lineList: [{

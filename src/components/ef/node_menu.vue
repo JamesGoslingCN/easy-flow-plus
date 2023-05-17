@@ -46,6 +46,13 @@
                         open: true,
                         children: [
                             {
+                                id: '00',
+                                type: 'start',
+                                name: '开始',
+                                ico: 'el-icon-caret-right',
+                                style: {}
+                            },
+                            {
                                 id: '11',
                                 type: 'timer',
                                 name: '数据接入',
@@ -73,7 +80,7 @@
                                 id: '21',
                                 type: 'end',
                                 name: '流程结束',
-                                ico: 'el-icon-caret-right',
+                                ico: 'el-icon-finished',
                                 // 自定义覆盖样式
                                 style: {}
                             }, {
