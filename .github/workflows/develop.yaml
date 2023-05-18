@@ -1,0 +1,39 @@
+name: develop branch, Test environment deployment # Actions名称
+env:
+  API_TOKEN: ${{ secrets.API_TOKEN }}
+  TEST_ENVIRONMENT_UUID: ${{ secrets.TEST_ENVIRONMENT_UUID }}
+on:
+  push:
+    branches: [ develop ]
+  # 触发workflow的动作形式，这里是手动触发
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: deploy-develop
+      run: |
+        curl -X POST --data "environment=$TEST_ENVIRONMENT_UUID" --header "Authorization: Token $API_TOKEN" https://api.divio.com/apps/v3/deployments/
+    # 安装依赖
+    # - name: install
+    #   run: yarn
+    # 打包
+    # - name: build project
+    #   run: yarn run build
+    # 打包镜像推送到腾讯云容器镜像服务
+    - name: Build the Docker image
+      run: |
+        docker login --username=${{ secrets.TENCENT_DOCKER_USERNAME }} ccr.ccs.tencentyun.com --password=${{ secrets.TENCENT_DOCKER_PASSWORD }}
+        docker build -t james-gosling-cn/easy-flow-plus:latest .
+        docker tag james-gosling-cn/easy-flow-plus:latest ccr.ccs.tencentyun.com/james-gosling-cn/efp:latest
+        docker push ccr.ccs.tencentyun.com/james-gosling-cn/efp:latest
+    # 使用appleboy/ssh-action@master登录服务器执行拉取镜像脚本，服务器ip、用户名、密码配置方式同容器镜像服务配置方式一样
+    # - name: ssh docker login
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.SSH_HOST }}
+    #     username: ${{ secrets.SSH_USERNAME }}
+    #     password: ${{ secrets.SSH_PASSWORD }}
+    #     script: cd ~ && sh  lizonghao.sh ${{ secrets.TENCENT_DOCKER_USERNAME }} ${{ secrets.TENCENT_DOCKER_PASSWORD }}
