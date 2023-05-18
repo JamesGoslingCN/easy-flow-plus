@@ -15,7 +15,8 @@ let dataA = {
             type: 'task',
             left: '340px',
             top: '161px',
-            ico: 'el-icon-goods'
+            ico: 'el-icon-goods',
+            code: 'a=1;b=2;c=a+b;'
         },
         {
             id: 'nodeC',
